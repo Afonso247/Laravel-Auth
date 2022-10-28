@@ -7,7 +7,7 @@
     <hr>
 
     @foreach ($articles as $article)
-        <p>{{ $article->title }} - {{ $article->text }} {{ $article->uuid }}</p>
+        <p>{{ $article->slug }} - {{ $article->text }} {{ $article->uuid }}</p>
     @endforeach
 
     @foreach ($users as $user)

@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
-            $table->string('title', 70);
+            $table->string('title', 70)->unique();
             $table->string('resume', 100);
             $table->longText('text');
-            $table->string('slug', 140);
+            $table->string('slug');
             $table->timestamps();
 
             $table->foreignId('user_id')->references('id')->on('users');

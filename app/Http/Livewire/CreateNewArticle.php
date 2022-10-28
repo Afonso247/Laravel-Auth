@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 use App\Models\{
     Article,
     User
@@ -14,7 +15,12 @@ class CreateNewArticle extends Component
     public $title = '';
     public $resume = '';
     public $text = '';
-    public $slug = '';
+
+    protected $rules = [
+        'title' => 'required|min:30|max:70|unique:articles',
+        'resume' => 'required|min:50|max:100',
+        'text' => 'required|max:200'
+    ];
 
     public function render()
     {
@@ -23,22 +29,15 @@ class CreateNewArticle extends Component
 
     public function create() {
 
-        if($this->title == '' || 
-           $this->resume == '' || 
-           $this->text == '' || 
-           $this->slug == '') {
-            
-            dd('Eu não irei rodar.');
-           } else {
+        $this->validate();
 
-            Article::create([
-                'title' => $this->title,
-                'resume' => $this->resume,
-                'text' => $this->text,
-                'slug' => $this->slug,
-                'user_id' => 1
-            ]);
-           }
+        Article::create([
+            'title' => $this->title,
+            'resume' => $this->resume,
+            'text' => $this->text,
+            'slug' => Str::slug($this->title, '-'),
+            'user_id' => 1
+        ]);
 
     }
 }
