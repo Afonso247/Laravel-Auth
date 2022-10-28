@@ -7,10 +7,12 @@
     <hr>
 
     @foreach ($articles as $article)
-        <p>{{ $article->slug }} - {{ $article->text }} {{ $article->uuid }}</p>
+        <p>{{ $article->slug }} - {{ $article->text }} - {{ $article->user_id }}</p>
     @endforeach
 
-    @foreach ($users as $user)
-        <p>{{ $user->name }}</p>
-    @endforeach
+    <hr>
+    
+    <div>
+        {{ $articles->links() }}
+    </div>
 </div>
