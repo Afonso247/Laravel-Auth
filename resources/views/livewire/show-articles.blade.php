@@ -1,8 +1,5 @@
-@section('web-title', 'Visualizar Artigos')
-
 <div>
-    <p>Mostrar Artigos</p>
-    <p>{{ $message }}</p>
+    <p>Mostrando últimos artigos</p>
 
     <input type="text" name="message" id="message" wire:model="message">
 

@@ -1,28 +1,40 @@
 @section('web-title', 'Criar novo artigo')
 
-<div>
-    <form wire:submit.prevent="create" method="POST">
-        <label for="">Título</label>
-        <input type="text" name="title" id="title" placeholder="Min. 30 caracteres..." wire:model="title">
-        <label for="">Resumo do Artigo</label>
-        <input type="text" name="resume" id="resume" placeholder="Min. 50 caracteres..." wire:model="resume">
-        <label for="">Texto</label>
-        <textarea name="text" id="text" cols="50" rows="20" placeholder="Max. 200 caracteres" wire:model="text"></textarea>
+<x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        {{ __('Criar novo artigo') }}
+    </h2>
+</x-slot>
 
-        <button type="submit">Criar Artigo</button>
-    </form>
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <form wire:submit.prevent="create" method="POST">
+                <label for="">Título</label>
+                <input type="text" name="title" id="title" placeholder="Min. 30 caracteres..." wire:model="title">
+                <label for="">Resumo do Artigo</label>
+                <input type="text" name="resume" id="resume" placeholder="Min. 50 caracteres..." wire:model="resume">
+                <label for="">Texto</label>
+                <textarea name="text" id="text" cols="50" rows="20" placeholder="Max. 200 caracteres" wire:model="text"></textarea>
+        
+                <x-jet-button type="submit">
+                    {{ __('Criar Novo Artigo') }}
+                </x-jet-button>
+            </form>
 
-    @error('title')
+            @error('title')
             <p>O campo "Título" não foi devidamente preenchido.</p>
             <small>(Min. 30 caracteres | Max. 70 caracteres)</small>
             <small>- O título não pode ser igual a de outros artigos</small>
-    @enderror
-    @error('resume')
+            @enderror
+            @error('resume')
             <p>O campo "Resumo do Artigo" não foi devidamente preenchido.</p>
             <small>(Min. 50 caracteres | Max. 100 caracteres)</small>
-    @enderror
-    @error('text')
-        <p>O campo "Texto" não foi devidamente preenchido.</p>
-        <small>(Max. 100 caracteres)</small>
-    @enderror
+            @enderror
+            @error('text')
+            <p>O campo "Texto" não foi devidamente preenchido.</p>
+            <small>(Max. 100 caracteres)</small>
+            @enderror
+        </div>
+    </div>
 </div>

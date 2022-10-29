@@ -14,6 +14,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
+        <link rel="stylesheet" href="/css/styles.css">
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
@@ -45,7 +46,7 @@
         @livewireScripts
 
         <footer>
-            <p>Created by Afonso H.</p>
+            <p>Criado por Afonso H.</p>
             <small>Github: <a href="https://github.com/Afonso247"
                 ><strong>Afonso247</strong></a></small>
         </footer>
