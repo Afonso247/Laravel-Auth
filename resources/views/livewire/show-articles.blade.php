@@ -1,3 +1,5 @@
+@section('web-title', 'Visualizar Artigos')
+
 <div>
     <p>Mostrar Artigos</p>
     <p>{{ $message }}</p>
@@ -11,7 +13,7 @@
     @endforeach
 
     <hr>
-    
+
     <div>
         {{ $articles->links() }}
     </div>

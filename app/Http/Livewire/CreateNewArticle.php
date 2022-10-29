@@ -31,13 +31,23 @@ class CreateNewArticle extends Component
 
         $this->validate();
 
-        Article::create([
+        auth()->user()->articles()->create([
             'title' => $this->title,
             'resume' => $this->resume,
             'text' => $this->text,
             'slug' => Str::slug($this->title, '-'),
-            'user_id' => 1
+            'user_id' => auth()->user()->id
         ]);
+
+        // Article::create([
+        //     'title' => $this->title,
+        //     'resume' => $this->resume,
+        //     'text' => $this->text,
+        //     'slug' => Str::slug($this->title, '-'),
+        //     'user_id' => auth()->user()->id
+        // ]);
+
+        return redirect('/articles')->with('msg', 'Artigo criado com sucesso!');
 
     }
 }

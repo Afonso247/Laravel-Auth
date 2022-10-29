@@ -18,7 +18,7 @@ class ShowArticles extends Component
 
     public function render()
     {
-        $articles = Article::with('user')->paginate(2);
+        $articles = Article::with('user')->latest()->paginate(3);
         $users = User::all();
 
         return view('livewire.show-articles', [

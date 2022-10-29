@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('web-title')</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -33,6 +33,9 @@
 
             <!-- Page Content -->
             <main>
+                @if(session('msg'))
+                    <p class="msg">{{ session('msg') }}</p>
+                @endif
                 {{ $slot }}
             </main>
         </div>
@@ -40,5 +43,11 @@
         @stack('modals')
 
         @livewireScripts
+
+        <footer>
+            <p>Created by Afonso H.</p>
+            <small>Github: <a href="https://github.com/Afonso247"
+                ><strong>Afonso247</strong></a></small>
+        </footer>
     </body>
 </html>

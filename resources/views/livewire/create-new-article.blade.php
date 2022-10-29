@@ -1,3 +1,5 @@
+@section('web-title', 'Criar novo artigo')
+
 <div>
     <form wire:submit.prevent="create" method="POST">
         <label for="">Título</label>
