@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\{
     ShowArticles,
-    CreateNewArticle
+    CreateNewArticle,
+    MyArticles
 };
 
 /*
@@ -35,4 +36,7 @@ Route::middleware([
 
     Route::get('/articles/create', 
         CreateNewArticle::class)->name('article-create');
+
+    Route::get('/articles/my-articles', 
+        MyArticles::class)->name('my-articles');
 });

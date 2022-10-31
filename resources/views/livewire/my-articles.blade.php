@@ -8,14 +8,15 @@
     
     <div>
         @foreach ($articles as $article)
+            @if(auth()->user()->id == $article->user_id)
             <p>{{ $article->title }} {{ $article->resume }} - {{ $article->text }}</p>
             <hr>
+            @endif
         @endforeach
     </div>
 
-    <hr>
-
     <div>
-        {{ $articles->links() }}
+        {{  $articles->links() }}
     </div>
+
 </div>
