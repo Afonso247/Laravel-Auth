@@ -39,4 +39,7 @@ Route::middleware([
 
     Route::get('/articles/my-articles', 
         MyArticles::class)->name('my-articles');
+
+    Route::delete('/articles/delete/{id}', 
+        [MyArticles::class, 'delete']);
 });

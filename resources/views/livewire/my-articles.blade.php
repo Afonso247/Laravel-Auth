@@ -2,7 +2,13 @@
 
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('Meus artigos') }}.
+        @if($counter == 1)
+        {{ __('Visualize, atualize e remova o seu ') }} <strong style="color: #3E6D9C">{{ __('artigo.') }}</strong>
+        @elseif($counter > 0)
+        {{ __('Visualize, atualize e remova os seus ') }} <strong style="color: #3E6D9C">{{ $counter }} {{ __(' artigos.') }}</strong>
+        @else
+        {{ __('Você não possui artigos.') }} <a href="/articles/create" style="color: #3E6D9C;"><strong>Crie um agora!</strong></a>
+        @endif
     </h2>
 </x-slot>
 
@@ -11,9 +17,8 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             {{-- <x-jet-welcome /> --}}
             <div>
-                <p>Mostrando últimos artigos de {{ Auth::user()->name }}.</p>
-            
-                <input type="text" name="message" id="message" wire:model="message">
+                <p>Mostrando últimos artigos de {{ Auth::user()->name }}: </p>
+
             
                 <hr>
             
@@ -21,12 +26,20 @@
                 <div>
                     @foreach ($articles as $article)
                         @if(auth()->user()->id == $article->user_id)
-                        {{-- <p>{{ $article->title }} {{ $article->resume }} - {{ $article->text }}</p> --}}
+
                         <h3><strong>{{ $article->title }}</strong></h3>
                         <h4><i>{{ $article->resume }}</i></h4>
                         <p>{{ $article->text }}</p>
-                        <a href="#">Atualizar artigo</a>
-                        <a href="#">Remover artigo</a>
+                        <x-jet-secondary-button wire:loading.attr="disabled">
+                            <a href="#" style="color: blue;">Atualizar artigo</a>
+                        </x-jet-secondary-button>
+                        <form action="/articles/delete/{{ $article->id }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <x-jet-danger-button type="submit" wire:loading.attr="disabled">
+                                {{ __('Remover Conta') }}
+                            </x-jet-danger-button>
+                        </form>
                         <hr>
                         @endif
                     @endforeach

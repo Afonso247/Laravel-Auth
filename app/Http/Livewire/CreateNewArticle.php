@@ -47,7 +47,7 @@ class CreateNewArticle extends Component
         //     'user_id' => auth()->user()->id
         // ]);
 
-        return redirect('/articles')->with('msg', 'Artigo criado com sucesso!');
+        return redirect('/dashboard')->with('msg', 'Artigo criado com sucesso!');
 
     }
 }

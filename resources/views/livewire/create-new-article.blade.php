@@ -2,7 +2,7 @@
 
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('Criar novo artigo') }}
+        <strong style="color: #3E6D9C;">Criar</strong>{{ __(' novo artigo.') }}
     </h2>
 </x-slot>
 
@@ -10,6 +10,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <form wire:submit.prevent="create" method="POST">
+                @csrf
                 <label for="">Título</label>
                 <input type="text" name="title" id="title" placeholder="Min. 30 caracteres..." wire:model="title">
                 <label for="">Resumo do Artigo</label>
