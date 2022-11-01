@@ -35,7 +35,7 @@
             @enderror
             @error('text')
             <p>O campo "Texto" não foi devidamente preenchido.</p>
-            <small>(Max. 100 caracteres)</small>
+            <small>(Max. 200 caracteres)</small>
             @enderror
         </div>
     </div>
