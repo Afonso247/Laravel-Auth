@@ -26,18 +26,17 @@
                 <div>
                     @foreach ($articles as $article)
                         @if(auth()->user()->id == $article->user_id)
-
                         <h3><strong>{{ $article->title }}</strong></h3>
                         <h4><i>{{ $article->resume }}</i></h4>
                         <p>{{ $article->text }}</p>
                         <x-jet-secondary-button wire:loading.attr="disabled">
-                            <a href="#" style="color: blue;">Atualizar artigo</a>
+                            <a href="/articles/edit/{{ $article->id }}" style="color: blue;">Atualizar artigo</a>
                         </x-jet-secondary-button>
                         <form action="/articles/delete/{{ $article->id }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <x-jet-danger-button type="submit" wire:loading.attr="disabled">
-                                {{ __('Remover Conta') }}
+                                {{ __('Remover Artigo') }}
                             </x-jet-danger-button>
                         </form>
                         <hr>

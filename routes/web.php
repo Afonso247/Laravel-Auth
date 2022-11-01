@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\{
     ShowArticles,
     CreateNewArticle,
-    MyArticles
+    MyArticles,
+    EditArticle
 };
 
 /*
@@ -42,4 +43,10 @@ Route::middleware([
 
     Route::delete('/articles/delete/{id}', 
         [MyArticles::class, 'delete']);
+
+    Route::get('/articles/edit/{id}', 
+        [EditArticle::class, 'render']);
+
+    Route::put('/articles/update/{id}', 
+        [EditArticle::class, 'edit']);
 });

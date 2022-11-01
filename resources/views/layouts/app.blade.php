@@ -38,6 +38,7 @@
                     <p class="msg">{{ session('msg') }}</p>
                 @endif
                 {{ $slot }}
+                @livewire('livewire-ui-modal')
             </main>
         </div>
 
