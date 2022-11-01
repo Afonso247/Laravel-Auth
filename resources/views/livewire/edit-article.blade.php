@@ -13,11 +13,11 @@
                 @csrf
                 @method('PUT')
                 <label for="">Título</label>
-                <input type="text" name="title" id="title" placeholder="Min. 30 caracteres..." wire:model="title" value="{{ $article->title }}">
+                <input type="text" name="title" id="title" placeholder="{{ $article->title }}" wire:model="title">
                 <label for="">Resumo do Artigo</label>
-                <input type="text" name="resume" id="resume" placeholder="Min. 50 caracteres..." wire:model="resume" value="{{ $article->resume }}">
+                <input type="text" name="resume" id="resume" placeholder="{{ $article->resume }}" wire:model="resume">
                 <label for="">Texto</label>
-                <textarea name="text" id="text" cols="50" rows="20" placeholder="Max. 200 caracteres" wire:model="text">{{ $article->text }}</textarea>
+                <textarea name="text" id="text" cols="50" rows="20" placeholder="{{ $article->text }}" wire:model="text"></textarea>
         
                 <x-jet-button type="submit">
                     {{ __('Criar Novo Artigo') }}

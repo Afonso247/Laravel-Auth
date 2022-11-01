@@ -16,11 +16,11 @@ class CreateNewArticle extends Component
     public $resume = '';
     public $text = '';
 
-    protected $rules = [
-        'title' => 'required|min:30|max:70|unique:articles',
-        'resume' => 'required|min:50|max:100',
-        'text' => 'required|max:200'
-    ];
+    // protected $rules = [
+    //     'title' => 'required|min:30|max:70|unique:articles',
+    //     'resume' => 'required|min:50|max:100',
+    //     'text' => 'required|max:200'
+    // ];
 
     public function render()
     {
