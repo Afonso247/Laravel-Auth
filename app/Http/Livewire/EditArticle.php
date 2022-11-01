@@ -31,9 +31,9 @@ class EditArticle extends Component
 
     public function edit($id) {
 
-        $this->validate();
+        // $this->validate();
 
-        Article::findOrFail($id)->update([
+        Article::findOrFail($id, 'id')->update([
             'title' => $this->title,
             'resume' => $this->resume,
             'text' => $this->text,
