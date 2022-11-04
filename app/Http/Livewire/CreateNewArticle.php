@@ -39,14 +39,6 @@ class CreateNewArticle extends Component
             'user_id' => auth()->user()->id
         ]);
 
-        // Article::create([
-        //     'title' => $this->title,
-        //     'resume' => $this->resume,
-        //     'text' => $this->text,
-        //     'slug' => Str::slug($this->title, '-'),
-        //     'user_id' => auth()->user()->id
-        // ]);
-
         return redirect('/dashboard')->with('msg', 'Artigo criado com sucesso!');
 
     }

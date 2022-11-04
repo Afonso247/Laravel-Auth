@@ -12,6 +12,9 @@ use Livewire\WithPagination;
 class MyArticles extends Component
 {
 
+    public $article;
+    public $editModal = false;
+
     use WithPagination;
 
     public function render()
@@ -26,10 +29,12 @@ class MyArticles extends Component
         }
 
         $articles = Article::with('user')->latest()->paginate();
+        $articleId = Article::latest()->get('id');
         $users = User::all();
 
         return view('livewire.my-articles', [
             'articles' => $articles,
+            'articleId' => $articleId,
             'users' => $users,
             'counter' => $counter
         ]);
@@ -42,4 +47,15 @@ class MyArticles extends Component
         return redirect('/articles/my-articles')->with('msg', 'Artigo removido com sucesso!');
 
     }
+
+    public function showModal() {
+        $this->editModal = true;
+
+        // $this->artigo = $id;
+    }
+
+    public function hideModal() {
+        $this->editModal = false;
+    }
+    
 }

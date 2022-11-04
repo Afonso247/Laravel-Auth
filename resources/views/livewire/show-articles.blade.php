@@ -11,7 +11,7 @@
             <h3><strong>{{ $article->title }}</strong></h3>
             <h4><i>{{ $article->resume }}</i></h4>
             <p>{{ $article->text }}</p>
-            <hr>
+            <x-jet-section-border />
         @endforeach
     </div>
 
