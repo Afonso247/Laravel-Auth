@@ -11,7 +11,7 @@ class EditArticle extends Component
 {
 
     public $articleId;
-    // public $article = Article::findOrFail($articleId);
+    // public Article $article = Article::findOrFail($articleId);
 
     public $title = '';
     public $resume = '';
@@ -30,22 +30,14 @@ class EditArticle extends Component
         // $this->resume = $this->article->resume;
         // $this->text = $this->article->text;
 
-        // $this->article->title = $this->title;
-        // $this->article->resume = $this->resume;
-        // $this->article->text = $this->text;
+        $listArticles = Article::all();
 
-        $article = $this->articleId;
+        // dd($listArticles);
 
         return view('livewire.edit-article', [
-            'article' => $article
+            'listArticles' => $listArticles
         ]);
     }
-
-    // public function mount() {
-    //     $this->title = $this->getArticle->title;
-    //     $this->resume = $this->getArticle->resume;
-    //     $this->text = $this->getArticle->text;
-    // }
 
     public function edit($id) {
 
@@ -58,9 +50,9 @@ class EditArticle extends Component
 
         $newArticle = Article::findOrFail($id);
 
-        $newArticle->title = $this->article->title;
-        $newArticle->resume = $this->article->resume;
-        $newArticle->text = $this->article->text;
+        $newArticle->title = $this->title;
+        $newArticle->resume = $this->resume;
+        $newArticle->text = $this->text;
         $newArticle->slug = Str::slug($this->article->title, '-');
         $newArticle->user_id = auth()->user()->id;
 

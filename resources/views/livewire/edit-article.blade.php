@@ -9,20 +9,24 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-            <form action="/articles/update" method="POST">
+            @foreach($listArticles as $article)
+            @if(auth()->user()->id == $article->user_id)
+            <form action="/articles/update/{{ $article->id }}" method="POST">
                 @csrf
                 @method ('PUT')
                 <label for="">Título</label>
-                <input type="text" name="title" id="title" placeholder="" wire:model="title">
+                <input type="text" name="title" id="title" placeholder="{{ $article->title }}" wire:model="title">
                 <label for="">Resumo do Artigo</label>
-                <input type="text" name="resume" id="resume" placeholder="" wire:model="resume">
+                <input type="text" name="resume" id="resume" placeholder="{{ $article->resume }}" wire:model="resume">
                 <label for="">Texto</label>
-                <textarea name="text" id="text" cols="50" rows="20" placeholder="{{ $article }}" wire:model="text"></textarea>
+                <textarea name="text" id="text" cols="50" rows="20" placeholder="{{ $article->text }}" wire:model="text"></textarea>
         
                 <x-jet-button type="submit">
                     {{ __('Criar Novo Artigo') }}
                 </x-jet-button>
             </form>
+            @endif
+            @endforeach
 
             @error('title')
             <p>O campo "Título" não foi devidamente preenchido.</p>

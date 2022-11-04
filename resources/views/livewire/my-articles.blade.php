@@ -24,7 +24,7 @@
             
                 
                 <div>
-                    @if(count($articles) > 0)
+                    @if(count(auth()->user()->articles) > 0)
                     @foreach ($articles as $article)
                         @if(auth()->user()->id == $article->user_id)
                         <h3><strong>{{ $article->title }}</strong></h3>
