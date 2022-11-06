@@ -9,3 +9,13 @@
     text-align: center;
     padding: 10px;
 }
+
+.err {
+    background-color: #ce2f2f;
+    color: #D4EDDA;
+    border: 1px solid #C3E6CB;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+}

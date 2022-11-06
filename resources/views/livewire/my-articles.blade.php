@@ -30,7 +30,7 @@
                         <h3><strong>{{ $article->title }}</strong></h3>
                         <h4><i>{{ $article->resume }}</i></h4>
                         <p>{{ $article->text }}</p>
-                        <x-jet-secondary-button wire:click="showModal" wire:loading.attr="disabled">
+                        <x-jet-secondary-button wire:click="showModal({{ $article->id }})" wire:loading.attr="disabled">
                             Editar Artigo
                             {{-- <a href="/articles/edit/{{ $article->id }}" style="color: blue;">Atualizar artigo</a> --}}
                         </x-jet-secondary-button>

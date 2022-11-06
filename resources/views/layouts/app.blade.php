@@ -37,6 +37,9 @@
                 @if(session('msg'))
                     <p class="msg">{{ session('msg') }}</p>
                 @endif
+                @if(session('err'))
+                    <p class="err">{{ session('err') }}</p>
+                @endif
                 {{ $slot }}
                 @livewire('livewire-ui-modal')
             </main>

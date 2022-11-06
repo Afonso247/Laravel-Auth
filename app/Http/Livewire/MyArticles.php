@@ -48,14 +48,17 @@ class MyArticles extends Component
 
     }
 
-    public function showModal() {
+    public function showModal($id) {
         $this->editModal = true;
 
         // $this->artigo = $id;
+        session(['selectedId' => $id]);
     }
 
     public function hideModal() {
         $this->editModal = false;
+
+        session()->forget(['selectedId']);
     }
     
 }
