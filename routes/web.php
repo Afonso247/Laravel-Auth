@@ -32,9 +32,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/articles', 
-        [ShowArticles::class, 'render'])->name('articles');
-
     Route::get('/articles/create', 
         CreateNewArticle::class)->name('article-create');
 

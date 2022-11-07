@@ -1,16 +1,10 @@
-{{-- @section('web-title', 'Editando artigo...')
+{{-- @section('web-title', 'Editando artigo...') --}}
 
-<x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <strong style="color: #3E6D9C;">Editando</strong>{{ __(' artigo...') }}
-    </h2>
-</x-slot> --}}
 
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             @foreach($listArticles as $article)
-            @if($currentId)
             @if(auth()->user()->id == $article->user_id && $article->id == session('selectedId'))
             <form action="/articles/update/{{ $article->id }}" method="POST">
                 @csrf
@@ -26,7 +20,6 @@
                     {{ __('Criar Novo Artigo') }}
                 </x-jet-button>
             </form>
-            @endif
             @endif
             @endforeach
 

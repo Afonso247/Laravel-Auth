@@ -51,7 +51,6 @@ class MyArticles extends Component
     public function showModal($id) {
         $this->editModal = true;
 
-        // $this->artigo = $id;
         session(['selectedId' => $id]);
     }
 

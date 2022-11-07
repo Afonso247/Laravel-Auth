@@ -11,16 +11,6 @@ use App\Models\Article;
 class EditArticle extends Component
 {
 
-    public $articleId;
-
-    public $currentId;
-
-    // protected $rules = [
-    //     'editTitle' => 'required|min:30|max:70|unique:articles',
-    //     'editResume' => 'required|min:50|max:100',
-    //     'editText' => 'required|max:200'
-    // ];
-
     public function render()
     {
 
@@ -30,14 +20,7 @@ class EditArticle extends Component
 
         return view('livewire.edit-article', [
             'listArticles' => $listArticles
-            // 'title' => $this->editTitle,
-            // 'resume' => $this->editResume,
-            // 'text' => $this->editText
         ]);
-    }
-
-    public function mount() {
-        $this->currentId = session('selectedId');
     }
 
     public function edit($id, Request $request) {
@@ -46,6 +29,7 @@ class EditArticle extends Component
 
         $editArticle = Article::findOrFail($id);
 
+        // Verificação de título único
         if($request->title != $editArticle->title){
             foreach($checkArticles as $checkArticle) {
                 if($checkArticle->title == $request->title) {
@@ -54,6 +38,7 @@ class EditArticle extends Component
                 }
             }
 
+            // placeholder
             // $this->article->title = 'lorem Ipsum is incorrect password reset link that will allow you.';
             // $this->article->resume = 'lorempixel is incorrect password reset link link that will allow you to reset your password again with a new password reset lololollolollololol';
             // $this->article->text = 'Um texto';
@@ -71,6 +56,7 @@ class EditArticle extends Component
             return redirect('/articles/my-articles')->with('msg', 'Artigo editado com sucesso!');
         } else {
 
+            // placeholder
             // $this->article->title = 'lorem Ipsum is incorrect password reset link that will allow you.';
             // $this->article->resume = 'lorempixel is incorrect password reset link link that will allow you to reset your password again with a new password reset lololollolollololol';
             // $this->article->text = 'Um texto';

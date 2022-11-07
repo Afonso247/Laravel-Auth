@@ -20,6 +20,7 @@ class ShowArticles extends Component
         
         $search = request('search');
 
+        // Método de busca
         if($search){
 
             $users = User::all();

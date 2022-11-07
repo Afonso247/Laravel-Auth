@@ -15,7 +15,6 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-            {{-- <x-jet-welcome /> --}}
             <div>
                 <p>Mostrando últimos artigos de {{ Auth::user()->name }}: </p>
 
@@ -32,7 +31,6 @@
                         <p>{{ $article->text }}</p>
                         <x-jet-secondary-button wire:click="showModal({{ $article->id }})" wire:loading.attr="disabled">
                             Editar Artigo
-                            {{-- <a href="/articles/edit/{{ $article->id }}" style="color: blue;">Atualizar artigo</a> --}}
                         </x-jet-secondary-button>
                         <form action="/articles/delete/{{ $article->id }}" method="POST">
                             @csrf
@@ -51,8 +49,6 @@
                         </x-slot>
             
                         <x-slot name="content">
-                            {{-- <div>Troço bão</div> --}}
-                            {{-- <livewire:edit-article :article="$artigo"> --}}
                             @livewire('edit-article', ['articleId' => $articleId])
                         </x-slot>
             

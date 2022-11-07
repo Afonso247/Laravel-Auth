@@ -31,6 +31,7 @@ class CreateNewArticle extends Component
 
         $this->validate();
 
+        // Ignore o erro. O código funciona da mesma forma.
         auth()->user()->articles()->create([
             'title' => $this->title,
             'resume' => $this->resume,
