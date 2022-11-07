@@ -14,16 +14,29 @@ class ShowArticles extends Component
     use WithPagination;
     
 
-    public $message = 'Testando...';
 
     public function render()
     {
-        $articles = Article::with('user')->latest()->paginate(3);
-        $users = User::all();
+        
+        $search = request('search');
+
+        if($search){
+
+            $users = User::all();
+            $articles = Article::with('user')->where([
+                ['title', 'like', '%'.$search.'%'],
+            ])->latest()->paginate(3);
+        } else {
+
+            $articles = Article::with('user')->latest()->paginate(3);
+            $users = User::all();
+        }
 
         return view('livewire.show-articles', [
             'articles' => $articles,
-            'users' => $users
+            'users' => $users,
+            'search' => $search
         ]);
     }
+
 }

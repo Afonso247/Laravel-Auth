@@ -33,7 +33,7 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/articles', 
-        ShowArticles::class)->name('articles');
+        [ShowArticles::class, 'render'])->name('articles');
 
     Route::get('/articles/create', 
         CreateNewArticle::class)->name('article-create');

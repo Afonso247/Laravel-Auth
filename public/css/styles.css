@@ -1,5 +1,9 @@
 /* Geral */
 
+.search-container {
+    display: inline-block;
+}
+
 .msg {
     background-color: #D4EDDA;
     color: #155754;
@@ -17,5 +21,11 @@
     width: 100%;
     margin-bottom: 0;
     text-align: center;
+    padding: 10px;
+}
+
+footer {
+    text-align: center;
+    margin: 0.5rem auto;
     padding: 10px;
 }
