@@ -1,4 +1,5 @@
 {{-- @section('web-title', 'Editando artigo...') --}}
+{{-- Arquivo inútil. Mas tô deixando aqui só por precaução ;) --}}
 
 
 <div class="py-12">
@@ -10,11 +11,11 @@
                 @csrf
                 @method ('PUT')
                 <label for="">Título</label>
-                <input type="text" name="title" id="title" placeholder="" value="{{ $article->title }}" minlength="30" maxlength="70">
+                <input type="text" name="title" id="title" placeholder="Min. 30 caracteres..." value="{{ $article->title }}" minlength="30" maxlength="70">
                 <label for="">Resumo do Artigo</label>
-                <input type="text" name="resume" id="resume" placeholder="" value="{{ $article->resume }}" minlength="50" maxlength="100">
+                <input type="text" name="resume" id="resume" placeholder="Min. 50 caracteres..." value="{{ $article->resume }}" minlength="50" maxlength="100">
                 <label for="">Texto</label>
-                <textarea name="text" id="text" cols="50" rows="20" placeholder="" maxlength="200">{{ $article->text }}</textarea>
+                <textarea name="text" id="text" cols="50" rows="20" placeholder="Max. 200 caracteres..." maxlength="200">{{ $article->text }}</textarea>
         
                 <x-jet-button type="submit">
                     {{ __('Criar Novo Artigo') }}

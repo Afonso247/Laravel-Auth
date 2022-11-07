@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Article;
 
-class EditArticle extends Component
+class EditArticle extends ModalComponent
 {
 
     public function render()

@@ -14,6 +14,7 @@ class MyArticles extends Component
 
     public $article;
     public $editModal = false;
+    public $selectedId;
 
     use WithPagination;
 
@@ -21,6 +22,7 @@ class MyArticles extends Component
     {
 
         $counter = 0;
+        $listArticles = Article::all();
 
         foreach (Article::all() as $article){
             if($article->user_id == auth()->user()->id){
@@ -33,8 +35,10 @@ class MyArticles extends Component
         $users = User::all();
 
         return view('livewire.my-articles', [
+            'listArticles' => $listArticles,
             'articles' => $articles,
             'articleId' => $articleId,
+            'selectedId' => $this->selectedId,
             'users' => $users,
             'counter' => $counter
         ]);
@@ -49,9 +53,9 @@ class MyArticles extends Component
     }
 
     public function showModal($id) {
-        $this->editModal = true;
+        $this->selectedId = $id;
 
-        session(['selectedId' => $id]);
+        $this->editModal = true;
     }
 
     public function hideModal() {
