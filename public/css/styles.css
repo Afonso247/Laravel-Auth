@@ -29,3 +29,54 @@ footer {
     margin: 0.5rem auto;
     padding: 10px;
 }
+
+/* Forms */
+
+.conteudo {
+    align-items: center;
+    position: relative;
+    margin: 0.5rem;
+    height: 100vh;
+	max-width: 100vh;
+}
+
+.form-body {
+	padding: 20px 12px 10px 20px;
+}
+
+.form-body label {
+	margin-top: 0.8rem;
+	padding: 0px;
+	display: block;
+	font-weight: bold;
+}
+
+.form-body input[type=text],
+.form-body textarea,
+.search-container input[type=text] {
+    background-color: #f0f0f0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border:1px solid #BEBEBE;
+	padding: 7px;
+	margin:0px;
+	-webkit-transition: all 0.10s ease-in-out;
+	-moz-transition: all 0.10s ease-in-out;
+	-ms-transition: all 0.10s ease-in-out;
+	-o-transition: all 0.10s ease-in-out;
+	outline: none;	
+}
+
+.form-body input[type=text]:focus,
+.form-body textarea:focus,
+.search-container input[type=text]:focus {
+	-moz-box-shadow: 0 0 8px #2757db;
+	-webkit-box-shadow: 0 0 8px #2757db;
+	box-shadow: 0 0 8px #2757db;
+	border: 1px solid #2757db;
+}
+
+.form-body .btn {
+    margin: auto;
+}

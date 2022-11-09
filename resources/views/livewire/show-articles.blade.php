@@ -1,5 +1,5 @@
 
-<div>
+<div class="conteudo">
 
     <div class="search-container">
         <h2>Busque um artigo: </h2>

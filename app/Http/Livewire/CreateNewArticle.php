@@ -17,9 +17,9 @@ class CreateNewArticle extends Component
     public $text = '';
 
     protected $rules = [
-        'title' => 'required|min:30|max:70|unique:articles',
-        'resume' => 'required|min:50|max:100',
-        'text' => 'required|max:200'
+        'title' => 'required|min:3|max:70|unique:articles',
+        'resume' => 'required|min:10|max:100',
+        'text' => 'required|max:250'
     ];
 
     public function render()
