@@ -80,3 +80,11 @@ footer {
 .form-body .btn {
     margin: auto;
 }
+
+.btn-mystuff {
+    position: relative;
+}
+
+.btn-mystuff-single {
+    margin: 0.5rem auto;
+}

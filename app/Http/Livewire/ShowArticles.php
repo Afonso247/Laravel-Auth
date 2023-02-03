@@ -19,18 +19,18 @@ class ShowArticles extends Component
     {
         
         $search = request('search');
+        $users = User::all();
 
         // Método de busca
         if($search){
 
-            $users = User::all();
+            //dd($thing);
             $articles = Article::with('user')->where([
                 ['title', 'like', '%'.$search.'%'],
             ])->latest()->paginate(3);
         } else {
 
             $articles = Article::with('user')->latest()->paginate(3);
-            $users = User::all();
         }
 
         return view('livewire.show-articles', [

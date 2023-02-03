@@ -21,7 +21,10 @@ class MyArticles extends Component
     public function render()
     {
 
+        $search = request('search');
+
         $counter = 0;
+        $counterSearch = 0;
         $listArticles = Article::all();
 
         foreach (Article::all() as $article){
@@ -30,7 +33,26 @@ class MyArticles extends Component
             }
         }
 
-        $articles = Article::with('user')->latest()->paginate();
+        if($search) {
+
+            foreach (Article::where('title', 'like', '%'.$search.'%') 
+                as $article)
+            {
+                if($article->user_id == auth()->user()->id){
+                    $counterSearch++;
+                }
+            }
+
+            $articles = Article::where([
+                ['user_id', auth()->user()->id],
+                ['title', 'like', '%'.$search.'%']
+            ])->latest()->paginate(2);
+        } else {
+            $articles = Article::where(
+                'user_id', auth()->user()->id)
+                ->latest()->paginate(2);
+        }
+
         $articleId = Article::latest()->get('id');
         $users = User::all();
 
@@ -40,7 +62,9 @@ class MyArticles extends Component
             'articleId' => $articleId,
             'selectedId' => $this->selectedId,
             'users' => $users,
-            'counter' => $counter
+            'counter' => $counter,
+            'counterSearch' => $counterSearch,
+            'search' => $search
         ]);
     }
 
